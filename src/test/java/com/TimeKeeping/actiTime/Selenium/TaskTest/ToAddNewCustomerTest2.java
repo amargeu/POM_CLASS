@@ -17,6 +17,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.TimeKeeping.actiTime.Selenium.genericUtility.BaseUtility;
 import com.TimeKeeping.actiTime.Selenium.genericUtility.ExcelUtility;
 import com.TimeKeeping.actiTime.Selenium.genericUtility.JavaUtility;
 import com.TimeKeeping.actiTime.Selenium.pomRepository.CreateNewCustomerPage;
@@ -26,7 +27,7 @@ import com.TimeKeeping.actiTime.Selenium.pomRepository.TaskPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class ToAddNewCustomerTest2 
+public class ToAddNewCustomerTest2 extends BaseUtility
 {
 	@Test
 	public void addCustomerInTaskTest() throws IOException 
@@ -35,13 +36,13 @@ public class ToAddNewCustomerTest2
 		 * Random random = new Random(); 
 		 * int randomValue = random.nextInt(2000);
 		 */
-		JavaUtility jUtils = new JavaUtility();
+		//JavaUtility jUtils = new JavaUtility();
 		int randomValue = jUtils.genereateRandomNo(1000);
          
 		//read data from properties file
-		  String url = jUtils.fetchDataFromPropertyFile("url"); 
-		  String username = jUtils.fetchDataFromPropertyFile("username"); 
-		  String password = jUtils.fetchDataFromPropertyFile("password");
+		 // String url = jUtils.fetchDataFromPropertyFile("url"); 
+		//  String username = jUtils.fetchDataFromPropertyFile("username"); 
+		 // String password = jUtils.fetchDataFromPropertyFile("password");
 		 
          
 		/*
@@ -53,9 +54,9 @@ public class ToAddNewCustomerTest2
 		 * String password=property.getProperty("password");
 		 */
         //read data from excel sheet
-          ExcelUtility excelUtils = new ExcelUtility();
-		  String expectedCustomerName = excelUtils.fetchDataFromExcelSheet("Sheet4",1,0)+randomValue; String
-		  description = excelUtils.fetchDataFromExcelSheet("Sheet4",1,1);
+          //ExcelUtility excelUtils = new ExcelUtility();
+		  String expectedCustomerName = excelUtils.fetchDataFromExcelSheet("Sheet4",1,0)+randomValue; 
+		  String description = excelUtils.fetchDataFromExcelSheet("Sheet4",1,1);
 		 
           
 		/*
@@ -68,15 +69,15 @@ public class ToAddNewCustomerTest2
 		 */
 		//launching a chrome driver and navigate to the url
 		
-		  WebDriverManager.chromedriver().setup(); WebDriver driver=new ChromeDriver();
-		  driver.manage().window().maximize();
-		  driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-		  driver.get(url);
+		 // WebDriverManager.chromedriver().setup(); WebDriver driver=new ChromeDriver();
+		 // driver.manage().window().maximize();
+		  //driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+		 // driver.get(url);
 		 
 		//login to the  application
 		
-		 LoginPage login=new LoginPage(driver); 
-		 login.loginAction(username,password);
+		// LoginPage login=new LoginPage(driver); 
+		// login.loginAction(username,password);
 		 
 		//clicking on task module
 		HomePage home=new HomePage(driver);
@@ -92,8 +93,8 @@ public class ToAddNewCustomerTest2
 		String actualcustomerName=task.verifyCustomerName(expectedCustomerName);
 		Assert.assertEquals(actualcustomerName,expectedCustomerName);
 		System.out.println("the customer name has been verified");
-		home.logoutAction();
-		driver.quit();
+		//home.logoutAction();
+		//driver.quit();
 		
 	}
 

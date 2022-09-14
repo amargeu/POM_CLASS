@@ -5,7 +5,13 @@
     <classes>
       <class name="com.TimeKeeping.actiTime.Selenium.TaskTest.ToAddNewCustomerTest2">
         <methods>
+          <include name="amConfig"/>
+          <include name="bmConfig"/>
+          <include name="asConfig"/>
           <include name="addCustomerInTaskTest"/>
+          <include name="acConfig"/>
+          <include name="bsConfig"/>
+          <include name="bcConfig"/>
         </methods>
       </class> <!-- com.TimeKeeping.actiTime.Selenium.TaskTest.ToAddNewCustomerTest2 -->
     </classes>
